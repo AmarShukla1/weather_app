@@ -1,0 +1,13 @@
+body{
+    display: flex;
+    flex-direction: column;
+    gap:50px;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    background-color: aqua;
+    border-radius: 10px;
+    height:30px;
+    width:70px;
+}
