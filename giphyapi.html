@@ -26,7 +26,7 @@
           button.style.backgroundColor='aqua';
         query_using_async(item);}
     })
-    function query_using_promise(item){
+    function query_using_promise(item){//in this the response is a promise first.that's why 2 then
     fetch(
       `https://api.giphy.com/v1/gifs/translate?api_key=7s9QFnR62JuwgMDZVFV916R5KKUcm4sQ&s=${item}`, {mode: 'cors'}
     )

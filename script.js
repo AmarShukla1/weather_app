@@ -12,7 +12,7 @@ async function query(city){
  const response=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=ca5b9f3fae3495a7d2acbe85d95196c9`);
  
  
- data=await response.json();
+ data=await response.json();//another promise
  
 let a=[] 
 a.push(data.name);
