@@ -18,9 +18,15 @@
     const button=document.querySelector('button');
     button.addEventListener('click',function(){
         item=prompt('enter the searchable option');
-        query(item);
+        let k=Math.floor(Math.random()*100);
+        if(k&1){
+         button.style.backgroundColor='red';
+        query_using_promise(item);}
+        else{
+          button.style.backgroundColor='aqua';
+        query_using_async(item);}
     })
-    function query(item){
+    function query_using_promise(item){
     fetch(
       `https://api.giphy.com/v1/gifs/translate?api_key=7s9QFnR62JuwgMDZVFV916R5KKUcm4sQ&s=${item}`, {mode: 'cors'}
     )
@@ -30,8 +36,15 @@
       })
       .then(function (response) {
         img.src=response.data.images.original.url;
-     
+        
       });
+    }
+    async function query_using_async(item){
+         let response=await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=7s9QFnR62JuwgMDZVFV916R5KKUcm4sQ&s=${item}`, {mode: 'cors'});
+
+         let val=await response.json();
+         img.src = val.data.images.original.url;
+    
     }
   </script>
 </html>
